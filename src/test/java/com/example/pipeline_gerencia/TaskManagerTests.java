@@ -13,7 +13,6 @@ import com.example.pipeline_gerencia.util.DateUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Comprehensive test suite for Task Manager application
@@ -77,8 +76,8 @@ public class TaskManagerTests {
     private static void testUserCreation(UserService userService) {
         // Create users
         User user1 = userService.createUser("João Silva", "joao@example.com", "Desenvolvimento");
-        User user2 = userService.createUser("Maria Santos", "maria@example.com", "Gerência");
-        User user3 = userService.createUser("Pedro Costa", "pedro@example.com", "Desenvolvimento");
+        userService.createUser("Maria Santos", "maria@example.com", "Gerência");
+        userService.createUser("Pedro Costa", "pedro@example.com", "Desenvolvimento");
 
         assert user1.getId() != null : "User ID should not be null";
         assert user1.isActive() : "User should be active by default";
