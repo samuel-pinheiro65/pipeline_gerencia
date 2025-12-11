@@ -50,11 +50,13 @@ jobs:
       
       - name: Verificar build
         run: |
-          if [ ! -f "build/libs/*.jar" ]; then
+          if ! ls build/libs/*.jar 1> /dev/null 2>&1; then
             echo "❌ Build falhou - JAR não encontrado"
             exit 1
           fi
           echo "✅ Build concluído com sucesso"
+          echo "📦 Arquivos JAR encontrados:"
+          ls -lh build/libs/*.jar
 
   # ============================================
   # ETAPA DE TESTE DE ACEITAÇÃO
