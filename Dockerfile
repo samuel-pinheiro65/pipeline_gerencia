@@ -22,6 +22,9 @@ FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
+# Instalar wget para health check
+RUN apk add --no-cache wget
+
 # Criar usuário não-root para segurança
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
