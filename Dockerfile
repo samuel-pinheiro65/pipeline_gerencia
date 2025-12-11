@@ -9,6 +9,12 @@ WORKDIR /app
 COPY build.gradle settings.gradle ./
 COPY gradle ./gradle
 
+# Copiar Gradle Wrapper (necessário para executar gradlew)
+COPY gradlew gradlew.bat ./
+
+# Dar permissão de execução ao gradlew
+RUN chmod +x ./gradlew
+
 # Copiar código fonte
 COPY src ./src
 
